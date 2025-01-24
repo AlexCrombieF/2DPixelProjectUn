@@ -15,29 +15,36 @@ public class PlayerController : MonoBehaviour
     TouchingDirections touchingDirections;
     public float CurrentMoveSpeed {  get
         {
-            if (IsMoving && !touchingDirections.IsOnWall)
+            if (CamMove)
             {
-                if (touchingDirections.IsGrounded)
+                if (IsMoving && !touchingDirections.IsOnWall)
                 {
-                    if (IsRunning)
+                    if (touchingDirections.IsGrounded)
                     {
-                        return runSpeed;
+                        if (IsRunning)
+                        {
+                            return runSpeed;
+                        }
+                        else
+                        {
+                            return walkSpeed;
+                        }
                     }
+
                     else
                     {
-                        return walkSpeed;
+                        return airWalkSpeed;
                     }
                 }
-
-            else
-            {
-                return airWalkSpeed;
-            } 
-        }
-            else 
-            {
+                else
+                {
+                    return 0;
+                }
+            } else 
+            { 
                 return 0;
             }
+
         }
 
     }
@@ -150,7 +157,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (context.started && touchingDirections.IsGrounded && CamMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
