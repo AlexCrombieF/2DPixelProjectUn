@@ -6,9 +6,12 @@ using UnityEngine;
 public class Knight : MonoBehaviour
 {
     public float walkSpeed = 3f;
+    public float walkStopRate =  0.6f;
+    public DetectionZone attackZone;
 
     Rigidbody2D rb;
     TouchingDirections touchingDirections;
+    Animator animator;
 
     public enum WalkabeleDirection {  Right , Left };   
 
@@ -35,10 +38,27 @@ public class Knight : MonoBehaviour
         }
     }
 
+    public bool _hasTarget = false;
+    public bool HasTarget { get { return _hasTarget; } private set
+       { 
+            _hasTarget = value;
+            animator.SetBool(AnimationStrings.hasTarget, value);
+       } 
+    }
+
+    public bool CanMove
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.canMove);
+        }
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -48,8 +68,16 @@ public class Knight : MonoBehaviour
         {
             FlipDirection();
         }
-
+        if (CanMove)
         rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
+        else
+        rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
+      
+    }
+
+    void Update()
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
     }
 
     private void FlipDirection()
@@ -72,8 +100,4 @@ public class Knight : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
 }

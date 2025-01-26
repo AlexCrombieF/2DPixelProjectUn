@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     TouchingDirections touchingDirections;
     public float CurrentMoveSpeed {  get
         {
-            if (CamMove)
+            if (CanMove)
             {
                 if (IsMoving && !touchingDirections.IsOnWall)
                 {
@@ -88,11 +88,11 @@ public class PlayerController : MonoBehaviour
 
     private bool _isRunning = false;
     private bool _isMoving = false;
-    public bool CamMove
+    public bool CanMove
     {
         get
         {
-            return animator.GetBool(AnimationStrings.camMove);
+            return animator.GetBool(AnimationStrings.canMove);
             } }
 
     Rigidbody2D rb;
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded && CamMove)
+        if (context.started && touchingDirections.IsGrounded && CanMove)
         {
             animator.SetTrigger(AnimationStrings.jumpTrigger);
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
