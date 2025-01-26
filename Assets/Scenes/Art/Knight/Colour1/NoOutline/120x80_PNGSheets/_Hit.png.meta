@@ -97,22 +97,22 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flack blag_0
+      name: _Hit_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 427
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 120
+        height: 80
+      alignment: 9
+      pivot: {x: 0.47, y: 0.23}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b1bc2ff628c13cb40800000000000000
-      internalID: 5459238519852682011
+      spriteID: 0e5e66b8d52100743851a6fac1d4aad3
+      internalID: 1382635598
       vertices: []
       indices: 
       edges: []
@@ -120,7 +120,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2b616f2a43a47d74e99b636dd309df90
     internalID: 0
     vertices: []
     indices: 
@@ -128,7 +128,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      flack blag_0: 5459238519852682011
+      _Hit_0: 1382635598
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
