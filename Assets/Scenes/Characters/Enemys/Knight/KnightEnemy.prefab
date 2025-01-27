@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 3
+  walkStopRate: 0.6
   attackZone: {fileID: 2798792841706270417}
   _hasTarget: 0
 --- !u!114 &4813245593395205934

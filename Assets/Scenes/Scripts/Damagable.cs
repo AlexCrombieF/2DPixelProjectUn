@@ -7,7 +7,7 @@ public class Damagable : MonoBehaviour
 {
     Animator animator;
     [SerializeField]
-    private float _maxHealth;
+    private float _maxHealth = 100;
     public float MaxHealth
     {  get 
         { 
@@ -43,26 +43,44 @@ public class Damagable : MonoBehaviour
 
     [SerializeField]
     private bool _isAlive = true;
-    public bool IsAlive { get
+
+    [SerializeField]
+    private bool isInvincible = false;
+    private float timeSinceHit = 0;
+    public float invincibilityTime = 0.25f;
+
+    public bool IsAlive 
+    { 
+        get
         {
             return _isAlive;
         }
         set
         { 
-         _isAlive = value;
+            _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
+            Debug.Log("IsAlive set" + value);
         } 
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (isInvincible)
+        {
+            if (timeSinceHit > invincibilityTime)
+            {
+                isInvincible = false;
+                timeSinceHit = 0;
+            }
+            timeSinceHit += Time.deltaTime;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void Hit(int damage)
     {
-        
+        if (IsAlive && !isInvincible)
+        { 
+          Health -= damage;
+          isInvincible = true;
+        }
     }
 }

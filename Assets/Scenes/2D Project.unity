@@ -13732,6 +13732,28 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1505116276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 665741554511495160, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
+  m_PrefabInstance: {fileID: 7352014238312628434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1505116285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505116276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f092f831fec4ad46ac7d6f5f42c1677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _health: 100
+  _isAlive: 1
+  isInvincible: 0
+  invincibilityTime: 0.25
 --- !u!1 &1560366135
 GameObject:
   m_ObjectHideFlags: 0
@@ -17492,6 +17514,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: KnightEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2386082804042113251, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
+      propertyPath: _health
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386082804042113251, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
+      propertyPath: _isAlive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9100933709059372662, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.22
@@ -17535,7 +17565,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 665741554511495160, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1505116285}
   m_SourcePrefab: {fileID: 100100000, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -583,6 +583,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 1
     m_Controller: {fileID: 9100000}
+  - m_Name: isAlive
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -886,7 +892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b394eccb5e7dd464aa07f300c4048c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boolName: camMove
+  boolName: canMove
   updateOnState: 0
   valueOnEnter: 0
   valueOnExit: 1
