@@ -65,7 +65,17 @@ public class Damagable : MonoBehaviour
             Debug.Log("IsAlive set" + value);
         } 
     }
-
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
+        }
+    }
     private void Update()
     {
         if (isInvincible)
@@ -84,7 +94,8 @@ public class Damagable : MonoBehaviour
         { 
           Health -= damage;
           isInvincible = true;
-            animator.SetTrigger(AnimationStrings.hitTrigger);
+          animator.SetTrigger(AnimationStrings.hitTrigger);
+          LockVelocity = true;
           damagableHit?.Invoke(damage, knockback);
           return true;
         }

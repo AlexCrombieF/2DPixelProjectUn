@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6893835859952766060}
   - component: {fileID: 4813245593395205934}
   - component: {fileID: 4489417219777538197}
+  - component: {fileID: 2904378039366256397}
   m_Layer: 8
   m_Name: KnightEnemy
   m_TagString: Untagged
@@ -224,6 +225,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2904378039366256397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665741554511495160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f092f831fec4ad46ac7d6f5f42c1677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagableHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _maxHealth: 100
+  _health: 100
+  _isAlive: 1
+  isInvincible: 0
+  invincibilityTime: 0.25
 --- !u!1 &1165553969552133846
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +284,7 @@ Transform:
   m_GameObject: {fileID: 1165553969552133846}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,7 +297,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165553969552133846}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -303,15 +336,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 3.0848236, y: 1.0333495}
-      - {x: 2.2123423, y: 1.2083395}
-      - {x: 1.5099838, y: 0.55841863}
-      - {x: 1.558224, y: 0.07891023}
-      - {x: 1.8133745, y: -0.5922457}
-      - {x: 2.6081176, y: -0.8918059}
-      - {x: 3.4832964, y: -1.0579472}
-      - {x: 3.7613342, y: -0.3662827}
-      - {x: 3.6000178, y: 0.32331127}
+    - - {x: 1.484376, y: 1.45452}
+      - {x: 0.07841182, y: 1.1241053}
+      - {x: 0.7799549, y: 0.51630163}
+      - {x: 1.0808976, y: 0.13506627}
+      - {x: 0.88679934, y: -0.53608954}
+      - {x: 1.7019882, y: -0.8719864}
+      - {x: 2.5379226, y: -1.018157}
+      - {x: 2.6269164, y: -0.32791853}
+      - {x: 2.5924916, y: 0.21945202}
+      - {x: 2.4416664, y: 0.6164484}
+      - {x: 2.1539989, y: 1.081418}
   m_UseDelaunayMesh: 0
 --- !u!114 &3968857796054379897
 MonoBehaviour:
@@ -326,6 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
+  knockback: {x: 5, y: 2}
 --- !u!1 &8576865233632600202
 GameObject:
   m_ObjectHideFlags: 0

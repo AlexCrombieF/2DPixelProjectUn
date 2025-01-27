@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damagable))]
 public class PlayerController : MonoBehaviour
 {
     public float walkSpeed = 5f;
@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float jumpImpulse = 10f;
     Vector2 moveInput;
     TouchingDirections touchingDirections;
+    Damagable damagable;
     public float CurrentMoveSpeed {  get
         {
             if (CanMove)
@@ -110,6 +111,10 @@ public class PlayerController : MonoBehaviour
         {
            return animator.GetBool(AnimationStrings.lockVelocity);
         }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value); 
+        }
     }
 
     Rigidbody2D rb;
@@ -121,6 +126,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+        damagable = GetComponent<Damagable>();
     }
     void Start()
     {
@@ -134,7 +140,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(!LockVelocity)
+        if(!damagable.LockVelocity)
         rb.velocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.velocity.y);
         animator.SetFloat(AnimationStrings.yVelocity, rb.velocity.y);
 

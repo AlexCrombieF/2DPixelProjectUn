@@ -13749,6 +13749,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f092f831fec4ad46ac7d6f5f42c1677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagableHit:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _health: 100
   _isAlive: 1
@@ -13915,6 +13918,34 @@ PrefabInstance:
       propertyPath: _IsFacingRight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: invincibilityTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1759277534}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4601800177540714002, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+      propertyPath: damagableHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6203557328116398348, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -13938,6 +13969,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 721666676629118189, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
   m_PrefabInstance: {fileID: 1759277522}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1759277534 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4197585356322866770, guid: 6fa675b1105bec548b9bbe41570dfbae, type: 3}
+  m_PrefabInstance: {fileID: 1759277522}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef2542ea95381e14887aa3fb21ce1904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900896874
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class Knight : MonoBehaviour
     Rigidbody2D rb;
     TouchingDirections touchingDirections;
     Animator animator;
+    Damagable damagable;
 
     public enum WalkabeleDirection {  Right , Left };   
 
@@ -59,6 +60,7 @@ public class Knight : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
+        damagable = GetComponent<Damagable>();
     }
 
     // Update is called once per frame
@@ -68,11 +70,14 @@ public class Knight : MonoBehaviour
         {
             FlipDirection();
         }
-        if (CanMove)
-        rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
-        else
-        rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
-      
+        if (!damagable.LockVelocity)
+        {
+            if (CanMove)
+                rb.velocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.velocity.y);
+            else
+                rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
+        }
+
     }
 
     void Update()
@@ -95,9 +100,9 @@ public class Knight : MonoBehaviour
         }
     }
 
-    void Start()
+    public void OnHit(int damage, Vector2 knockback)
     {
-        
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
     }
 
 }
