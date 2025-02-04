@@ -35,6 +35,8 @@ public class HealthText : MonoBehaviour
             textMeshPro.color = new Color(startColor.r, startColor.g, startColor.b, fadeAlpha);
         }
         else 
-        { Destroy(gameObject); }
+        { 
+            Destroy(gameObject);
+         }
     }
 }
