@@ -13,7 +13,16 @@ public class UIManager : MonoBehaviour
     {
         gameCanvas = FindObjectOfType<Canvas>();
     }
-
+    private void OnEnable()
+    {
+        CharacterEvents.characterDamaged.AddListener(CharacteTookDamage);
+        CharacterEvents.characterHealed.AddListener(CharacterHealed);
+    }
+    private void OnDisable()
+    {
+        CharacterEvents.characterDamaged.RemoveListener(CharacteTookDamage);
+        CharacterEvents.characterHealed.RemoveListener(CharacterHealed);
+    }
     public void CharacteTookDamage(GameObject character, int damageReceived)
     {
         Vector3 spawnPosition = Camera.main.WorldToScreenPoint(character.transform.position);
