@@ -9,8 +9,8 @@ public class Damagable : MonoBehaviour
     public UnityEvent<int, Vector2> damagableHit;
     Animator animator;
     [SerializeField]
-    private float _maxHealth = 100;
-    public float MaxHealth
+    private int _maxHealth = 100;
+    public int MaxHealth
     {  get 
         { 
             return _maxHealth; 
@@ -21,8 +21,8 @@ public class Damagable : MonoBehaviour
         } 
     }
     [SerializeField]
-    private float _health = 100;
-    public float Health
+    private int _health = 100;
+    public int Health
     {
         get
         {
@@ -101,5 +101,15 @@ public class Damagable : MonoBehaviour
           return true;
         }
         return false;
+    }
+    public void Heal(int healthRestore)
+    {
+        if(IsAlive)
+        {
+            int maxHeal = Mathf.Max(MaxHealth - Health, 0);
+            int actualHeal = Mathf.Min(maxHeal, healthRestore);
+            Health += actualHeal;
+            CharacterEvents.characterHealed(gameObject, actualHeal);
+        }
     }
 }
