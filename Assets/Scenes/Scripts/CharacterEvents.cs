@@ -9,7 +9,7 @@ using UnityEngine.Events;
 
 public class CharacterEvents
  {
-    public static UnityEvent<GameObject, int> characterDamaged;
-    public static UnityEvent<GameObject, int> characterHealed;
+    public static UnityAction<GameObject, int> characterDamaged;
+    public static UnityAction<GameObject, int> characterHealed;
 }
 
