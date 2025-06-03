@@ -17,7 +17,8 @@ public class HealthPickup : MonoBehaviour
         Damagable damagable = collision.GetComponent<Damagable>();
         if (damagable)
         {
-            damagable.Heal(healthRestore);
+            bool wasHealed = damagable.Heal(healthRestore);
+            if (wasHealed)
             Destroy(gameObject);
             
         }
