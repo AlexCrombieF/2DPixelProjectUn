@@ -18526,6 +18526,10 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6893835859952766060, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
+      propertyPath: maxSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6893835859952766060, guid: 0e6cccbc33dccdf4fa0ebf4cc66ea854, type: 3}
       propertyPath: walkAcceleration
       value: 35
       objectReference: {fileID: 0}
